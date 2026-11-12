@@ -1,0 +1,266 @@
+/* =========================================================
+   COLORI DEL SITO - VARIANTE B "giallo pieno" (12/11/2026)
+   Via il blu di Bootstrap (#0d6efd).
+   - sfondi delle azioni principali: giallo #ffd400 con testo nero
+   - testi e link: nero #1d1d1b (il giallo su bianco non si legge),
+     sottolineatura dei link gialla
+   Il tema usa --bs-primary anche per testi (hover, menu account,
+   albero categorie): per questo --bs-primary diventa NERO e il
+   giallo va solo sugli sfondi qui sotto.
+   ========================================================= */
+:root,
+[data-bs-theme=light] {
+  --ab-yellow: #ffd400;
+  --ab-yellow-hover: #f0c400;
+  --ab-yellow-active: #e6bb00;
+  --ab-ink: #1d1d1b;
+  --bs-primary: #1d1d1b;
+  --bs-primary-rgb: 29, 29, 27;
+  --bs-primary-text-emphasis: #3d3300;
+  --bs-primary-bg-subtle: #fff6cc;
+  --bs-primary-border-subtle: #ffe680;
+  --bs-link-color: #1d1d1b;
+  --bs-link-color-rgb: 29, 29, 27;
+  --bs-link-hover-color: #55534d;
+  --bs-link-hover-color-rgb: 85, 83, 77;
+  --bs-focus-ring-color: rgba(255, 212, 0, 0.5);
+}
+
+a {
+  text-decoration-color: var(--ab-yellow);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+/* Pulsante principale: giallo, testo nero */
+.btn-primary {
+  --bs-btn-color: #1d1d1b;
+  --bs-btn-bg: #ffd400;
+  --bs-btn-border-color: #ffd400;
+  --bs-btn-hover-color: #1d1d1b;
+  --bs-btn-hover-bg: #f0c400;
+  --bs-btn-hover-border-color: #f0c400;
+  --bs-btn-focus-shadow-rgb: 255, 212, 0;
+  --bs-btn-active-color: #1d1d1b;
+  --bs-btn-active-bg: #e6bb00;
+  --bs-btn-active-border-color: #e6bb00;
+  --bs-btn-disabled-color: #1d1d1b;
+  --bs-btn-disabled-bg: #ffd400;
+  --bs-btn-disabled-border-color: #ffd400;
+  font-weight: 700;
+}
+
+/* Pulsante secondario: bordo nero, al passaggio diventa giallo */
+.btn-outline-primary {
+  --bs-btn-color: #1d1d1b;
+  --bs-btn-border-color: #1d1d1b;
+  --bs-btn-hover-color: #1d1d1b;
+  --bs-btn-hover-bg: #ffd400;
+  --bs-btn-hover-border-color: #ffd400;
+  --bs-btn-focus-shadow-rgb: 255, 212, 0;
+  --bs-btn-active-color: #1d1d1b;
+  --bs-btn-active-bg: #e6bb00;
+  --bs-btn-active-border-color: #e6bb00;
+  --bs-btn-disabled-color: #1d1d1b;
+  --bs-btn-disabled-border-color: #1d1d1b;
+}
+
+/* "Tutti i prodotti", "Tutte le migliori vendite": giallo pieno */
+.all-product-link.btn {
+  --bs-btn-color: #1d1d1b;
+  --bs-btn-bg: #ffd400;
+  --bs-btn-border-color: #ffd400;
+  --bs-btn-hover-color: #1d1d1b;
+  --bs-btn-hover-bg: #f0c400;
+  --bs-btn-hover-border-color: #f0c400;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 20px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.all-product-link.btn i {
+  color: #1d1d1b;
+}
+
+/* Paginazione */
+.pagination {
+  --bs-pagination-active-color: #1d1d1b;
+  --bs-pagination-active-bg: #ffd400;
+  --bs-pagination-active-border-color: #ffd400;
+  --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(255, 212, 0, 0.5);
+}
+
+/* La pagina attiva ha anche la classe "disabled" (grigia): la forziamo gialla. */
+.pagination .page-item.active .page-link,
+.pagination .current a {
+  background-color: #ffd400;
+  border-color: #ffd400;
+  color: #1d1d1b;
+  font-weight: 700;
+}
+
+/* Caselle e radio selezionate: giallo con segno nero */
+.form-check-input:checked,
+.form-check-input[type=checkbox]:indeterminate {
+  background-color: #ffd400;
+  border-color: #e6bb00;
+}
+
+.form-check-input:checked[type=checkbox] {
+  --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%231d1d1b' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+}
+
+.form-check-input:checked[type=radio] {
+  --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%231d1d1b'/%3e%3c/svg%3e");
+}
+
+/* Bordo e alone dei campi selezionati */
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus,
+.header__bottom #search_widget input:focus,
+.search__offcanvas #search_widget input:focus {
+  border-color: #e6bb00;
+  box-shadow: 0 0 0 0.25rem rgba(255, 212, 0, 0.45);
+}
+
+.nav-link:focus-visible,
+.btn-close:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 212, 0, 0.5);
+}
+
+.form-range::-webkit-slider-thumb {
+  background-color: #ffd400;
+}
+
+.form-range::-moz-range-thumb {
+  background-color: #ffd400;
+}
+
+/* Elementi "attivi" che erano blu */
+.nav-pills {
+  --bs-nav-pills-link-active-color: #1d1d1b;
+  --bs-nav-pills-link-active-bg: #ffd400;
+}
+
+.list-group {
+  --bs-list-group-active-color: #1d1d1b;
+  --bs-list-group-active-bg: #ffd400;
+  --bs-list-group-active-border-color: #ffd400;
+}
+
+.progress,
+.progress-stacked {
+  --bs-progress-bar-bg: #ffd400;
+  --bs-progress-bar-color: #1d1d1b;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: #1d1d1b;
+}
+
+.carousel .carousel-indicators button.active {
+  background-color: #ffd400;
+}
+
+.step .address.selected,
+.custom-checkbox input[type=checkbox] + span.color.active,
+.custom-checkbox input[type=checkbox] + span.color:hover {
+  border-color: #ffd400;
+}
+
+.thumbnails__container .thumbnail.active img {
+  border-color: #ffd400;
+}
+
+.customer-link a span:hover,
+.customer-link__link span:hover,
+.cart__item .product-line__actions a:after {
+  background: #ffd400;
+}
+
+/* Avvisi "primary" (es. informazioni): giallo chiaro */
+.alert-primary {
+  --bs-alert-color: #3d3300;
+  --bs-alert-bg: #fff6cc;
+  --bs-alert-border-color: #ffe680;
+}
+
+/* Titoli delle sezioni prodotto: tutti uguali, a sinistra, barretta gialla sopra.
+   Sostituisce la fascia gialla sfumata di "Prodotti Popolari" / "Nuovi prodotti". */
+section.featured-products h2.section-title,
+section.new-products h2.section-title,
+.featured-products .section-title,
+.new-products .section-title,
+.best-sellers-products .section-title,
+.sale-products .section-title,
+.viewed-products .section-title,
+.category-products .section-title {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 16px 0 0;
+  margin-bottom: 24px !important;
+  color: #1d1d1b;
+  font-size: clamp(22px, 2.2vw, 28px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+section.featured-products h2.section-title::before,
+section.new-products h2.section-title::before,
+.featured-products .section-title::before,
+.new-products .section-title::before,
+.best-sellers-products .section-title::before,
+.sale-products .section-title::before,
+.viewed-products .section-title::before,
+.category-products .section-title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  background: #ffd400;
+}
+
+/* Newsletter: fascia nera, pulsante giallo */
+.email-subscription {
+  background: #1d1d1b;
+  color: #fff;
+}
+
+.email-subscription .email-subscription__label {
+  color: #fff;
+  font-weight: 600;
+}
+
+.email-subscription .email-subscription__content__infos,
+.email-subscription .email-subscription__content__infos p {
+  color: #cfcdc6;
+}
+
+.email-subscription .email-subscription__content__infos a {
+  color: #fff;
+}
+
+.email-subscription .form-control {
+  min-height: 44px;
+  border: 0;
+  border-radius: 10px;
+}
+
+.email-subscription .btn-primary {
+  min-height: 44px;
+  border-radius: 10px;
+  padding: 0 20px;
+}

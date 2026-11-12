@@ -1,0 +1,63 @@
+127a128,139
+>             {* AB card A: modello e tipo ricavati dal nome (VK135/136, VB100, TM31, Frog; Originale/Compatibile).
+>                ponytail: euristica sul nome; per etichette esatte usare una caratteristica prodotto "Compatibilita". *}
+>             {assign var=abModel value=$product.name|regex_replace:'/^.*?\b((?:VK|VB|TM)\s?\d{1,4}(?:\s?s\b)?(?:\/\d{2,3})*|Baby\s?Frog|Frog)\b.*$/isu':'$1'}
+>             {if $abModel == $product.name}{assign var=abModel value=''}{/if}
+>             {assign var=abModel value=$abModel|upper|regex_replace:'/(\d)S$/':'$1s'|regex_replace:'/^(VK|VB)/':'Folletto $1'|regex_replace:'/^TM/':'Bimby TM'|regex_replace:'/^((?:BABY\s?)?FROG)$/':'Didiesse $1'}
+>             {assign var=abKind value=$product.name|regex_replace:'/^.*\b(originale|compatibile)\b.*$/isu':'$1'}
+>             {if $abKind == $product.name}{assign var=abKind value=''}{/if}
+>             {* Riga sempre presente (anche vuota) cosi i titoli restano allineati nella griglia. *}
+>             <div class="{$componentName}__tags">
+>               {if $abModel}<span class="{$componentName}__model">{$abModel}</span>{/if}
+>               {if $abKind}<span class="{$componentName}__kind">{$abKind|lower|capitalize}</span>{/if}
+>             </div>
+146c158,159
+<             <div class="{$componentName}__prices">
+---
+>             <div class="{$componentName}__buy">
+>             <div class="{$componentName}__prices{if $product.availability == 'unavailable'} is-unavailable{/if}">
+176a190,192
+>               {if $product.availability == 'unavailable'}
+>                 <span class="{$componentName}__soldout">Esaurito</span>
+>               {/if}
+178a195
+>             {* AB card A: quantita compatta accanto al carrello (nascosta su telefono, dove vale la minima). *}
+180c197
+<               <form action="{$urls.pages.cart}" method="post" class="d-flex flex-wrap flex-md-nowrap gap-3 align-items-center mt-3">
+---
+>               <form action="{$urls.pages.cart}" method="post" class="{$componentName}__cart-form">
+182d198
+< 
+183a200
+>                 <input type="number" name="qty" id="quantity_wanted_{$product.id_product}" class="{$componentName}__qty" value="{$product.minimal_quantity}" min="{$product.minimal_quantity}" inputmode="numeric" aria-label="{l s='Quantity' d='Shop.Theme.Actions'}">
+185,196c202
+<                 <div class="quantity-button js-quantity-button w-100 w-sm-auto">
+<                   {include file='components/qty-input.tpl'
+<                     attributes=[
+<                       "id" => "quantity_wanted_{$product.id_product}",
+<                       "value" => "{$product.minimal_quantity}",
+<                       "min" => "{$product.minimal_quantity}"
+<                     ]
+<                     marginHelper="mb-0"
+<                   }
+<                 </div>
+< 
+<                 <button data-button-action="add-to-cart" class="btn btn-primary flex-grow-1 flex-md-grow-0">
+---
+>                 <button data-button-action="add-to-cart" class="btn {$componentName}__cart-btn" aria-label="{l s='Add to cart' d='Shop.Theme.Actions'}">
+198d203
+<                   <span class="visually-hidden">{l s='Add to cart' d='Shop.Theme.Actions'}</span>
+200a206,210
+>             {elseif $product.availability == 'unavailable'}
+>               <a href="{$product.url}" class="btn {$componentName}__notify {$componentName}__notify--icon" aria-label="Avvisami quando torna disponibile">
+>                 <i class="material-icons" aria-hidden="true">&#xe7f4;</i>
+>                 <span class="{$componentName}__notify-text">Avvisami</span>
+>               </a>
+202,203c212,213
+<               <a href="{$product.url}" class="btn btn-outline-primary mt-3">
+<                 {l s='See details' d='Shop.Theme.Actions'}
+---
+>               <a href="{$product.url}" class="btn {$componentName}__notify">
+>                 <span>{l s='See details' d='Shop.Theme.Actions'}</span>
+205a216
+>             </div>

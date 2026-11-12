@@ -1,0 +1,326 @@
+/* =========================================================
+   CARD PRODOTTO - VARIANTE A (pulita, 12/11/2026)
+   Foto su bianco, etichetta modello, titolo su 2 righe,
+   prezzo + carrello giallo sulla stessa riga.
+   Sovrascrive le regole "Bordo su card prodotti" piu sopra.
+   ========================================================= */
+.product-miniature .card {
+  border: 1px solid #e7e5df;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-miniature .card:hover {
+  border-color: #d9d6cc;
+  box-shadow: 0 6px 18px rgba(29, 29, 27, 0.08);
+  transform: none;
+}
+
+.product-miniature .product-miniature__image-container {
+  padding: 20px;
+  background: #fff;
+}
+
+.product-miniature .product-miniature__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.product-miniature .product-miniature__infos {
+  padding: 0 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product-miniature .product-miniature__infos__top {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Il tema aggiunge 8px ai lati di queste due righe: li togliamo, il margine e gia su __infos. */
+.product-miniature .product-miniature__infos__top,
+.product-miniature .product-miniature__infos__bottom {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.product-miniature .product-miniature__tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-height: 22px;
+}
+
+.product-miniature .product-miniature__model {
+  background: #f2f1ec;
+  color: #3a3a36;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.product-miniature .product-miniature__kind {
+  font-size: 12px;
+  color: #6b6a63;
+}
+
+.product-miniature .product-miniature__infos__top a {
+  color: #1d1d1b;
+  text-decoration: none;
+}
+
+.product-miniature .product-miniature__infos__top a:hover .product-miniature__title {
+  color: #55534d;
+}
+
+.product-miniature .product-miniature__title {
+  margin: 0;
+  color: #1d1d1b;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  min-height: 2.8em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-miniature .product-miniature__infos__bottom {
+  margin-top: auto;
+}
+
+.product-miniature .product-miniature__buy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.product-miniature .product-miniature__prices {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.product-miniature .product-miniature__price {
+  color: #1d1d1b;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.product-miniature .product-miniature__regular-price {
+  font-size: 13px;
+  color: #7a7870;
+}
+
+.product-miniature .product-miniature__prices.is-unavailable .product-miniature__price {
+  color: #7a7870;
+}
+
+.product-miniature .product-miniature__soldout {
+  font-size: 12px;
+  color: #6b6a63;
+}
+
+.product-miniature .product-miniature__cart-form {
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.product-miniature .product-miniature__cart-btn {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: #ffd400;
+  color: #1d1d1b;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-miniature .product-miniature__cart-btn:hover {
+  background: #f0c400;
+  color: #1d1d1b;
+}
+
+.product-miniature .product-miniature__cart-btn:focus-visible,
+.product-miniature .product-miniature__notify:focus-visible {
+  outline: 2px solid #1d1d1b;
+  outline-offset: 2px;
+}
+
+.product-miniature .product-miniature__cart-btn .material-icons {
+  font-size: 22px;
+}
+
+.product-miniature .product-miniature__notify {
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid #d6d4cc;
+  border-radius: 10px;
+  background: #fff;
+  color: #1d1d1b;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.product-miniature .product-miniature__notify:hover {
+  border-color: #1d1d1b;
+  color: #1d1d1b;
+}
+
+.product-miniature .product-miniature__notify .material-icons {
+  font-size: 18px;
+}
+
+/* Badge "Non disponibile" sulla foto: grigio scuro invece che arancione (solo nelle card). */
+.product-miniature .product-flags li.badge.out_of_stock,
+.product-miniature .product-flags li.badge.unavailable,
+.product-miniature .product-flags li.badge[data-stock="out_of_stock"] {
+  background-color: #3a3a36 !important;
+  border-color: #3a3a36 !important;
+  color: #fff !important;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* Quantita compatta: va a capo da sola se la card e troppo stretta. */
+.product-miniature .product-miniature__buy {
+  flex-wrap: wrap;
+}
+
+.product-miniature .product-miniature__cart-form {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.product-miniature .product-miniature__qty {
+  width: 48px;
+  height: 44px;
+  padding: 0 4px;
+  border: 1px solid #d6d4cc;
+  border-radius: 10px;
+  background: #fff;
+  color: #1d1d1b;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.product-miniature .product-miniature__qty::-webkit-outer-spin-button,
+.product-miniature .product-miniature__qty::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.product-miniature .product-miniature__qty:focus-visible {
+  outline: 2px solid #1d1d1b;
+  outline-offset: 2px;
+}
+
+/* Card strette (tablet con colonna laterale, telefono): via la quantita e "Avvisami" solo campanella,
+   cosi prezzo e pulsante restano su una riga. Decide la larghezza della card, non dello schermo. */
+.product-miniature .card {
+  container: abcard / inline-size;
+}
+
+@container abcard (max-width: 229px) {
+  .product-miniature .product-miniature__qty {
+    display: none;
+  }
+
+  .product-miniature .product-miniature__notify--icon {
+    width: 44px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .product-miniature .product-miniature__notify-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+
+/* Telefono: due card per riga, tutto piu compatto. */
+@media (max-width: 575.98px) {
+  .product-miniature .product-miniature__image-container {
+    padding: 12px;
+  }
+
+  .product-miniature .product-miniature__infos {
+    padding: 0 8px 10px;
+    gap: 6px;
+  }
+
+  .product-miniature .product-miniature__buy {
+    gap: 6px;
+  }
+
+  .product-miniature .product-miniature__kind {
+    display: none;
+  }
+
+  .product-miniature .product-miniature__model {
+    font-size: 11px;
+    padding: 2px 6px;
+  }
+
+  .product-miniature .product-miniature__tags {
+    min-height: 19px;
+  }
+
+  .product-miniature .product-miniature__qty {
+    display: none;
+  }
+
+  .product-miniature .product-miniature__title {
+    font-size: 13px;
+  }
+
+  .product-miniature .product-miniature__price {
+    font-size: 17px;
+  }
+
+  .product-miniature .product-miniature__notify--icon {
+    width: 44px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .product-miniature .product-miniature__notify-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+
+

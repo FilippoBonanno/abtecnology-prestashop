@@ -1,0 +1,1 @@
+{* stub per il test *}
