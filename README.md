@@ -1,14 +1,17 @@
 # A.B. Tecnology · e-commerce PrestaShop 9
 
-Manutenzione, moduli su misura e restyling di [abtecnologyricambi.it](https://www.abtecnologyricambi.it/), negozio online di ricambi per Vorwerk Folletto e Bimby, accessori per la casa e climatizzazione (Misilmeri, Palermo).
+Progettazione e realizzazione **da zero**, poi manutenzione, moduli su misura e restyling di [abtecnologyricambi.it](https://www.abtecnologyricambi.it/), negozio online di ricambi per Vorwerk Folletto e Bimby, accessori per la casa e climatizzazione (Misilmeri, Palermo).
 
-**Stack:** PrestaShop 9.0.1 · PHP 8 · Smarty 4 · tema Hummingbird (Bootstrap 5) · CSS moderno (container query, custom properties)
+**Stack:** PrestaShop 9.0.1 su hosting Aruba · PHP 8 · Smarty 4 · tema Hummingbird (Bootstrap 5) · CSS moderno (container query, custom properties)
 
-> *English summary:* maintenance and redesign of a PrestaShop 9 spare-parts store: safe module upgrades checked against theme overrides, two custom modules (product image watermarking, back-office 2FA), a UX audit, and a redesign of product cards and site colours shipped in small, verified steps.
+> *English summary:* a PrestaShop 9 spare-parts store built from scratch on Aruba hosting, then maintained and redesigned: safe module upgrades checked against theme overrides, two custom modules (product image watermarking, back-office 2FA), a UX audit, and a redesign of product cards and site colours shipped in small, verified steps.
 
 ---
 
 ## Cosa ho fatto
+
+### 0. Il negozio, da zero
+Installazione di PrestaShop 9 sull'hosting Aruba, configurazione del tema Hummingbird, struttura delle categorie e catalogo, messa online del negozio. Tutto quello che segue è il lavoro fatto dopo il lancio, sullo stesso sito.
 
 ### 1. Aggiornamenti senza rompere il tema
 15 moduli da aggiornare (alcuni a versioni maggiori: ricerca a faccette, newsletter, modulo di contatto). Prima di toccarli ho mappato gli override del tema personalizzato e letto i changelog, poi ho verificato online pagina per pagina (home, categorie, ricerca, carrello, checkout). Risultato: nessuna regressione, e i difetti trovati (form contatti assente, filtri mai configurati) risultavano già presenti nel dump del database precedente.
@@ -64,4 +67,4 @@ tests/
 Ogni modifica è passata da: analisi → mockup con varianti → scelta del cliente → implementazione → test in locale → anteprima sul sito live (solo nel browser) → pacchetto con istruzioni e file originali per il rollback → verifica online dopo il caricamento.
 
 ---
-Lavoro svolto da **Filippo Bonanno** per A.B. Tecnology, pubblicato con il consenso del cliente.
+Sito realizzato e mantenuto da **Filippo Bonanno** per A.B. Tecnology, pubblicato con il consenso del cliente.
